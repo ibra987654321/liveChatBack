@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+<nav>
+    <a href="/">Home</a>
+    <a href="/about">About</a>
+</nav>
+<h1>Home page</h1>
+<script>
+    console.log(' ')
+    async function sendUser() {
+        const response = await fetch("/user", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                name: "Tom",
+                age: 37
+            })
+        });
+        const responseText = await response.text();
+        console.log(responseText);
+    }
+    sendUser();
+</script>
+</body>
+</html>
